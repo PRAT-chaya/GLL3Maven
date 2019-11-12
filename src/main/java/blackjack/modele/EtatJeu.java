@@ -5,6 +5,7 @@
  */
 package blackjack.modele;
 
+import cartes.Paquet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,16 +17,18 @@ import util.EcouteurModele;
  * @author ordinaute
  */
 public class EtatJeu extends AbstractModeleEcoutable implements EcouteurModele {
+
     private final List<Joueur> joueurs;
     private final Croupier croupier;
     private Map<Joueur, Integer> mises;
+    private Map<Joueur, Paquet> paquets;
     private final Regles regles;
     private int tour;
     private Joueur joueurActif;
-    
-    public EtatJeu(List<Joueur> joueurs, Regles regles){
+
+    public EtatJeu(List<Joueur> joueurs, Regles regles) {
         this.joueurs = joueurs;
-        for (Joueur joueur : joueurs){
+        for (Joueur joueur : joueurs) {
             joueur.ajouterEcouteur(this);
         }
         this.regles = regles;
@@ -34,6 +37,10 @@ public class EtatJeu extends AbstractModeleEcoutable implements EcouteurModele {
         this.mises = new HashMap();
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Joueur> getJoueurs() {
         return joueurs;
     }
@@ -42,21 +49,26 @@ public class EtatJeu extends AbstractModeleEcoutable implements EcouteurModele {
         return croupier;
     }
 
+    /**
+     *
+     * @return
+     */
     public Map<Joueur, Integer> getMises() {
         return mises;
     }
 
-    public int getMise(Joueur joueur){
+    public int getMise(Joueur joueur) {
         return this.mises.get(joueur);
     }
-    
-    public void setMise(Joueur joueur, int mise) throws IllegalArgumentException{
-        if (this.mises.containsKey(joueur))
+
+    public void setMise(Joueur joueur, int mise) throws IllegalArgumentException {
+        if (this.mises.containsKey(joueur)) {
             this.mises.replace(joueur, mise);
-        else
+        } else {
             throw new IllegalArgumentException();
+        }
     }
-    
+
     public Regles getRegles() {
         return regles;
     }
@@ -69,8 +81,6 @@ public class EtatJeu extends AbstractModeleEcoutable implements EcouteurModele {
         return joueurActif;
     }
 
-    
-    
     @Override
     public EcouteurModele modeleMisAJour(Object source) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

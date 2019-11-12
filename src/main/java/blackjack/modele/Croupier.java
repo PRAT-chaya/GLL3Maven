@@ -6,6 +6,7 @@
 package blackjack.modele;
 
 import cartes.Paquet;
+import java.util.List;
 import util.AbstractModeleEcoutable;
 
 /**
@@ -13,12 +14,35 @@ import util.AbstractModeleEcoutable;
  * @author ordinaute
  */
 public class Croupier extends AbstractModeleEcoutable{
-    private Paquet visible;
-    private Paquet cache;
+    private Paquet main;
+    private Paquet pioche;
     
     public Croupier(){
         super();
-        this.visible = new Paquet();
-        this.cache = new Paquet();
+        this.main = new Paquet();
+        this.pioche = new Paquet();
     }
+    
+    public Paquet deal(List<Joueur> joueurs){
+        
+    }
+
+    public Paquet getMain() {
+        return main;
+    }
+
+    public void setMain(Paquet main) {
+        this.main = main;
+    }
+
+    public Paquet getPioche() {
+        return pioche;
+    }
+
+    public void setPioche(Paquet pioche) {
+        this.pioche = pioche;
+    }
+    
+    
 }
+
