@@ -7,6 +7,8 @@ package cartes;
 
 import util.AbstractModeleEcoutable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -29,6 +31,9 @@ public class Paquet extends AbstractModeleEcoutable {
 
     public void setCartes(List<Carte> cartes) {
         this.cartes = cartes;
+        if (!ecouteurs.isEmpty()) {
+            fireChangement();
+        }
     }
 
     public List<Carte> melanger() {
@@ -42,6 +47,9 @@ public class Paquet extends AbstractModeleEcoutable {
             this.cartes.set(i, carte);
             temp.remove(carte);
         }
+        if (!ecouteurs.isEmpty()) {
+            fireChangement();
+        }
         return this.cartes;
     }
 
@@ -49,8 +57,13 @@ public class Paquet extends AbstractModeleEcoutable {
         Random rand = new Random();
         int nbCartes = this.cartes.size();
         int rint = rand.nextInt(nbCartes);
-        return Paquet.couper(rint, this.cartes);
+        Paquet.couper(rint, this.cartes);
+        if (!ecouteurs.isEmpty()) {
+            fireChangement();
+        }
+        return this.cartes;
     }
+
 
     public static List<Carte> couper(int cut, List<Carte> cartes) {
         List<Carte> temp = Paquet.cloneCartes(cartes);
@@ -59,7 +72,7 @@ public class Paquet extends AbstractModeleEcoutable {
             if (i < cut) {
                 cartes.set(i, temp.get(cut + i));
             } else {
-                cartes.set(i, temp.get(i-cut));
+                cartes.set(i, temp.get(i - cut));
             }
         }
         return cartes;
@@ -79,5 +92,32 @@ public class Paquet extends AbstractModeleEcoutable {
 
     private List<Carte> cloneCartes() {
         return Paquet.cloneCartes(this.cartes);
+    }
+
+    public Carte getCarte(int i) {
+        return this.cartes.get(i);
+    }
+
+    public Carte removeCarte(Carte carte) {
+        this.cartes.remove(carte);
+        if (!ecouteurs.isEmpty()) {
+            fireChangement();
+        }
+        return carte;
+    }
+
+    public void addCarte(Carte carte) {
+        this.cartes.add(carte);
+        if (!ecouteurs.isEmpty()) {
+            fireChangement();
+        }
+    }
+
+    public int getNbCartes() {
+        return this.cartes.size();
+    }
+    
+    public List<Carte> triHauteur(){
+        return null;
     }
 }

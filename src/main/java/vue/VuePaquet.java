@@ -8,19 +8,21 @@ package vue;
 import cartes.Carte;
 import cartes.Paquet;
 import java.util.List;
+import javax.swing.JPanel;
 import util.EcouteurModele;
 
 /**
  *
  * @author ordinaute
  */
-public abstract class VuePaquet implements EcouteurModele {
+public abstract class VuePaquet extends JPanel implements EcouteurModele {
 
     protected Paquet paquet;
     protected String nomPaquet;
     protected boolean isVisible;
 
     protected VuePaquet(Paquet paquet, String nomPaquet, boolean isVisible) {
+        super();
         this.paquet = paquet;
         this.nomPaquet = nomPaquet;
         this.isVisible = isVisible;
@@ -45,7 +47,7 @@ public abstract class VuePaquet implements EcouteurModele {
     protected void consoleDisplay(List<Carte> cartes) {
         String output = "Paquet: ";
         for (Carte carte : cartes) {
-            output += "[" + carte.getHauteur() + ", " + carte.getCouleurStr() + "]; ";
+            output += "[" + carte.getHauteur() + ", " + carte.getCouleur() + "]; ";
         }
         System.out.println(output);
     }

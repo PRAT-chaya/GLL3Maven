@@ -11,18 +11,16 @@ package cartes;
  */
 public class Carte {
 
-    public enum Couleur {
-        NULL,
-        PIQUE,
-        TREFLE,
-        CARREAU,
-        COEUR
-    }
+    public final static String 
+            PIQUE = "pique",
+            TREFLE = "trèfle",
+            CARREAU = "carreau",
+            COEUR = "coeur";
     
     private final int hauteur;
-    private final Couleur couleur;
+    private final String couleur;
 
-    public Carte(int valeur, Couleur couleur) {
+    public Carte(int valeur, String couleur) {
         this.hauteur = valeur;
         this.couleur = couleur;
     }
@@ -37,21 +35,22 @@ public class Carte {
         return this.hauteur;
     }
 
-    public Couleur getCouleur() {
+    public String getCouleur() {
         return this.couleur;
     }
     
-    public String getCouleurStr(){
-        switch(this.couleur){
-            case PIQUE:
-                return "pique";
-            case TREFLE:
-                return "trefle";
-            case CARREAU:
-                return "carreau";
-            case COEUR:
-                return "coeur";
+    public String getHauteurStr(){
+        switch(this.hauteur){
+            case 1:
+                return "as";
+            case 11:
+                return "valet";
+            case 12:
+                return "dame";
+            case 13:
+                return "roi";
+            default:
+                return String.valueOf(hauteur);
         }
-        return null;
     }
 }

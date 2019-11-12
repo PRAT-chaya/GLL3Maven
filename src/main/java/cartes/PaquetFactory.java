@@ -21,22 +21,22 @@ public abstract class PaquetFactory {
             paquet.TYPEJEU = nbCartes;
             List<Carte> cartes = new ArrayList();
             for (int i = 0; i < nbCartes; i++) {
-                Carte.Couleur couleur = Carte.Couleur.NULL;
+                String couleur = "";
                 switch (i % 4) {
                     case 0:
-                        couleur = Carte.Couleur.PIQUE;
+                        couleur = Carte.PIQUE;
                         break;
                     case 1:
-                        couleur = Carte.Couleur.COEUR;
+                        couleur = Carte.COEUR;
                         break;
                     case 2:
-                        couleur = Carte.Couleur.CARREAU;
+                        couleur = Carte.CARREAU;
                         break;
                     case 3:
-                        couleur = Carte.Couleur.TREFLE;
+                        couleur = Carte.TREFLE;
                         break;
                 }
-                if (!(couleur == Carte.Couleur.NULL)) {
+                if (!(couleur == "")) {
                     cartes.add(PaquetFactory.assignValueToCarte(nbCartes, i, couleur));
                 } else {
                     throw new IllegalArgumentException("Couleur inexistante");
@@ -49,7 +49,7 @@ public abstract class PaquetFactory {
         return paquet;
     }
 
-    public static Carte assignValueToCarte(int TYPEJEU, int index, Carte.Couleur couleur)
+    public static Carte assignValueToCarte(int TYPEJEU, int index, String couleur)
             throws IllegalArgumentException {
         if (TYPEJEU == 52) {
             return new Carte((index % 13 + 1), couleur);

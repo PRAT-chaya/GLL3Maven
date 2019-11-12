@@ -5,6 +5,7 @@
  */
 package util;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,7 +14,11 @@ import java.util.List;
  */
 public abstract class AbstractModeleEcoutable implements ModeleEcoutable {
 
-    List<EcouteurModele> ecouteurs;
+    protected List<EcouteurModele> ecouteurs;
+    
+    public AbstractModeleEcoutable(){
+        this.ecouteurs = new ArrayList();
+    }
 
     @Override
     public void ajouterEcouteur(EcouteurModele e){
