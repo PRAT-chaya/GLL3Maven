@@ -1,4 +1,4 @@
- /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -7,7 +7,6 @@ package blackjack.modele;
 
 import cartes.Carte;
 import cartes.Paquet;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -17,8 +16,9 @@ import java.util.Map;
  *
  * @author ordinaute
  */
-public class Regles {
+public abstract class Regles {
 
+    public int NB_CARTES_CROUPIER_DISTR_INIT = 2;
     private Map<Integer, List<Integer>> valeurMap;
     private int miseMin;
     private int miseMax;
@@ -91,9 +91,9 @@ public class Regles {
     }
 
     public boolean hasWon(Paquet paquetJoueur, Paquet paquetCroupier, int valeurAs) {
-        int joueurSum = cartesSum(paquetJoueur.getCartes(), valeurAs);
-        if (joueurSum == 21){
-            if (paquetCroupier.premiereCarte().getHauteur() == 1){
+        int joueurSum = cartesSum(paquetJoueur.getCartes());
+        if (joueurSum == 21) {
+            if (paquetCroupier.premiereCarte().getHauteur() == 1) {
                 return false;
             } else {
                 return true;
@@ -101,17 +101,17 @@ public class Regles {
         }
         return false;
     }
-    
-    public int cartesSum(List<Carte> cartes, int valeurAs){
+
+    public int cartesSum(List<Carte> cartes) {
         int sum = 0;
+
         for (Carte carte : cartes) {
             if (carte.getHauteur() != 1) {
                 sum += this.valeurMap.get(carte.getHauteur()).get(0);
             } else {
-                sum += valeurAs;
+
             }
         }
         return sum;
     }
-
 }

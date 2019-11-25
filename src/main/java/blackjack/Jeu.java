@@ -34,7 +34,7 @@ public class Jeu {
 
     public static EtatJeu start() {
         List<Joueur> joueurs = new ArrayList();
-        Regles regles = new Regles();
+        Regles regles = new ReglesFr();
         return new EtatJeu(joueurs, regles);
     }
 
