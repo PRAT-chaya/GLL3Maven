@@ -49,6 +49,9 @@ public class VuePaquetVisible extends VuePaquet implements EcouteurModele {
         return cartesVues;
     }
 
+    /**
+     * Afficher Le Paquet Visible
+     */
     private void buildPaquetVue(MouseListener ml) {
         JButton triHButton = new JButton("Tri par hauteur");
         JButton triCButton = new JButton("Tri par couleur");
@@ -72,6 +75,9 @@ public class VuePaquetVisible extends VuePaquet implements EcouteurModele {
         this.add(mainPanel, BorderLayout.CENTER);
     }
 
+    /**
+     * Afficher Le Paquet Visible
+     */
     private void buildPaquetVue() {
         JButton triHButton = new JButton("Tri par hauteur");
         JButton triCButton = new JButton("Tri par couleur");
@@ -95,6 +101,10 @@ public class VuePaquetVisible extends VuePaquet implements EcouteurModele {
         this.add(mainPanel, BorderLayout.CENTER);
     }
 
+    /**
+     * Attirer Une Carte
+     * @param ml
+     */
     private void drawCartes(MouseListener ml) {
         this.cartePanel.removeAll();
         List<JPanel> lines = new ArrayList();
@@ -118,6 +128,10 @@ public class VuePaquetVisible extends VuePaquet implements EcouteurModele {
         }
     }
 
+    /**
+     * Attirer Tout les Cartes
+     * @param ml
+     */
     private void drawCartes() {
         this.cartePanel.removeAll();
         this.cartePanel.setLayout(new BoxLayout(this.cartePanel, BoxLayout.PAGE_AXIS));

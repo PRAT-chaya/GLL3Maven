@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- *
+ * Paquet De Carte
  * @author 21907858
  */
 public class Paquet extends AbstractModeleEcoutable {
@@ -21,7 +21,9 @@ public class Paquet extends AbstractModeleEcoutable {
     List<Carte> cartes;
     public int TYPEJEU;
 
+
     public Paquet() {
+        //Initialisation De La Liste Des Cartes
         this.cartes = new ArrayList();
     }
 
@@ -29,6 +31,10 @@ public class Paquet extends AbstractModeleEcoutable {
         return cartes;
     }
 
+    /**
+     * Mettre La Liste Des Cartes et notifier les ecouteurs (VuePaquet) Du Changement
+     * @param cartes
+     */
     public void setCartes(List<Carte> cartes) {
         this.cartes = cartes;
         if (!ecouteurs.isEmpty()) {
@@ -36,6 +42,10 @@ public class Paquet extends AbstractModeleEcoutable {
         }
     }
 
+    /**
+     * Mélanger les cartes arbitrairement et notifier les ecouteurs (VuePaquet) Du Changement
+     * @return Liste de cartes mélangé
+     */
     public List<Carte> melanger() {
         Random rand = new Random();
         List<Carte> temp = cloneCartes();
@@ -65,6 +75,12 @@ public class Paquet extends AbstractModeleEcoutable {
     }
 
 
+    /**
+     *
+     * @param cut L'indice de coupage
+     * @param cartes La liste des cartes à couper
+     * @return
+     */
     public static List<Carte> couper(int cut, List<Carte> cartes) {
         List<Carte> temp = Paquet.cloneCartes(cartes);
         int nbCartes = cartes.size();
@@ -78,10 +94,19 @@ public class Paquet extends AbstractModeleEcoutable {
         return cartes;
     }
 
+    /**
+     *
+     * @return La Premiére carte
+     */
     public Carte premiereCarte() {
         return this.cartes.get(0);
     }
 
+    /**
+     *
+     * @param cartes Liste Des Cartes à copier
+     * @return
+     */
     private static List<Carte> cloneCartes(List<Carte> cartes) {
         List<Carte> newCartes = new ArrayList();
         for (int i = 0; i < cartes.size(); i++) {
@@ -98,6 +123,11 @@ public class Paquet extends AbstractModeleEcoutable {
         return this.cartes.get(i);
     }
 
+    /**
+     * Enlevé Une Carte  et notifier les ecouteurs (VuePaquet) Du Changement
+     * @param carte à enlever
+     * @return
+     */
     public Carte removeCarte(Carte carte) {
         this.cartes.remove(carte);
         if (!ecouteurs.isEmpty()) {
@@ -106,6 +136,10 @@ public class Paquet extends AbstractModeleEcoutable {
         return carte;
     }
 
+    /**
+     * Ajouter Une Carte au paquet  et notifier les ecouteurs (VuePaquet) Du Changement
+     * @param carte
+     */
     public void addCarte(Carte carte) {
         this.cartes.add(carte);
         if (!ecouteurs.isEmpty()) {
@@ -113,6 +147,10 @@ public class Paquet extends AbstractModeleEcoutable {
         }
     }
 
+    /**
+     *
+     * @return Nombres De Cartes du paquet
+     */
     public int getNbCartes() {
         return this.cartes.size();
     }

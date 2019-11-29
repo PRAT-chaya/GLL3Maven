@@ -14,6 +14,12 @@ import java.util.List;
  */
 public abstract class PaquetFactory {
 
+    /**
+     *
+     * @param nbCartes Nombre De Carte Dans Le Paquet
+     * @return Le Paquet créer
+     * @throws IllegalArgumentException
+     */
     public static Paquet buildPaquet(int nbCartes)
             throws IllegalArgumentException {
         Paquet paquet = new Paquet();

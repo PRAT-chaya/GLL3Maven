@@ -10,5 +10,10 @@ package util;
  * @author 21907858
  */
 public interface EcouteurModele {
+    /**
+     *  Notifier les ecouteurs Du Changement
+     * @param L'Objet Modifié
+     * @return
+     */
     public EcouteurModele modeleMisAJour(Object source);
 }

@@ -20,16 +20,27 @@ public abstract class AbstractModeleEcoutable implements ModeleEcoutable {
         this.ecouteurs = new ArrayList();
     }
 
+    /**
+     * Ajouter un écouteur
+     * @param e
+     */
     @Override
     public void ajouterEcouteur(EcouteurModele e){
         ecouteurs.add(e);
     }
 
+    /**
+     * Enlever Un écouteur
+     * @param e
+     */
     @Override
     public void retraitEcouteur(EcouteurModele e){
         ecouteurs.remove(e);
     }
-    
+
+    /**
+     *  Notifier les ecouteurs Du Changement
+     */
     public void fireChangement(){
         for (EcouteurModele e : ecouteurs){
             e.modeleMisAJour(this);

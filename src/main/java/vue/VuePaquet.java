@@ -21,6 +21,12 @@ public abstract class VuePaquet extends JPanel implements EcouteurModele {
     protected String nomPaquet;
     protected boolean isVisible;
 
+    /**
+     *
+     * @param paquet Paquet à Afficher
+     * @param nomPaquet Nom Du Paquet
+     * @param isVisible Visibilité Du Paquet
+     */
     protected VuePaquet(Paquet paquet, String nomPaquet, boolean isVisible) {
         super();
         this.paquet = paquet;
@@ -28,6 +34,11 @@ public abstract class VuePaquet extends JPanel implements EcouteurModele {
         this.isVisible = isVisible;
     }
 
+    /**
+     *  Notifier les ecouteurs Du Changement
+     * @param L'Objet Modifié
+     * @return
+     */
     @Override
     public EcouteurModele modeleMisAJour(Object source)
             throws IllegalArgumentException {
@@ -39,11 +50,19 @@ public abstract class VuePaquet extends JPanel implements EcouteurModele {
         }
         return this;
     }
-    
+
+    /**
+     * Afficher Le Paquet
+     * @param paquet
+     */
     protected void displayPaquet(Paquet paquet){
         consoleDisplay(paquet.getCartes());
     }
 
+    /**
+     * Afficher Le Paquet
+     * @param cartes
+     */
     protected void consoleDisplay(List<Carte> cartes) {
         String output = "Paquet: ";
         for (Carte carte : cartes) {

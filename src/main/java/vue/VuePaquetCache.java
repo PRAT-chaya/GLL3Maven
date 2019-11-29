@@ -24,12 +24,20 @@ public class VuePaquetCache extends VuePaquet implements EcouteurModele {
 
     DrawPioche drawPioche;
 
+    /**
+     *
+     * @param paquet
+     * @param nomPaquet
+     */
     public VuePaquetCache(Paquet paquet, String nomPaquet) {
         super(paquet, nomPaquet, false);
         this.setSize(240, 240);
         this.buildPaquetVue();
     }
 
+    /**
+     * Afficher Le Paquet Caché
+     */
     public void buildPaquetVue() {
         this.setLayout(new BorderLayout());
         this.add(new JLabel("PIOCHE"), BorderLayout.NORTH);

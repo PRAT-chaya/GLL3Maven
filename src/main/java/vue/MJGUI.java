@@ -28,13 +28,20 @@ public class MJGUI extends JFrame implements EcouteurModele{
         this.setVisible(true);
     }
 
+    /**
+     * Construire La Vue
+     */
     private void buildVue() {
         VuePaquetVisible piocheVue = new VuePaquetVisible(this.pioche, "PIOCHE visible");
         this.getContentPane().setLayout(new BorderLayout());
         this.getContentPane().add(piocheVue, BorderLayout.CENTER);
-        
     }
 
+    /**
+     *  Notifier les ecouteurs Du Changement
+     * @param L'Objet Modifié
+     * @return
+     */
     @Override
     public EcouteurModele modeleMisAJour(Object source) {
         this.getContentPane().validate();

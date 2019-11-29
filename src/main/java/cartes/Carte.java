@@ -11,13 +11,23 @@ package cartes;
  */
 public class Carte {
 
+    /**
+     * Types possibles de cartes
+     */
     public final static String 
             PIQUE = "pique",
             TREFLE = "trèfle",
             CARREAU = "carreau",
             COEUR = "coeur";
-    
+
+    /**
+     * Numéro De La Carte
+     */
     private final int hauteur;
+
+    /**
+     * Couleur De La Carte
+     */
     private final String couleur;
 
     public Carte(int valeur, String couleur) {

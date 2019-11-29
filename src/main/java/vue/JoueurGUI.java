@@ -33,6 +33,9 @@ public class JoueurGUI extends JFrame {
         this.setVisible(true);
     }
 
+    /**
+     * Construire La Vue
+     */
     private void buildVue() {
         VuePaquetCache piocheVue = new VuePaquetCache(this.pioche, "PIOCHE");
         piocheVue.getDrawPioche().addMouseListener(new PiocheListener());
@@ -47,6 +50,10 @@ public class JoueurGUI extends JFrame {
 
     class PiocheListener extends MouseAdapter {
 
+        /**
+         * Capter La Click De Souris sur la carte
+         * @param arg0
+         */
         @Override
         public void mouseClicked(MouseEvent arg0) {
             Carte todo = pioche.premiereCarte();
@@ -60,6 +67,10 @@ public class JoueurGUI extends JFrame {
 
     class CarteMainListener extends MouseAdapter {
 
+        /**
+         * Capter La Click De Souris sur la carte
+         * @param arg0
+         */
         @Override
         public void mouseClicked(MouseEvent arg0) {
             Carte carte = ((DrawCarteVisible) arg0.getSource()).getCarte();
@@ -73,6 +84,10 @@ public class JoueurGUI extends JFrame {
 
     class CarteDefausseListener extends MouseAdapter {
 
+        /**
+         * Capter La Click De Souris sur la carte
+         * @param arg0
+         */
         @Override
         public void mouseClicked(MouseEvent arg0) {
             Carte carte = ((DrawCarteVisible) arg0.getSource()).getCarte();
