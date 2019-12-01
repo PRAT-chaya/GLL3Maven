@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: cartes.PaquetFactoryTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec <<< FAILURE!
+cartes.PaquetFactoryTest.testAssignValueToCarte()  Time elapsed: 0.008 sec  <<< FAILURE!
+java.lang.RuntimeException: Uncompilable source code - Erroneous ctor sym type: <any>
+	at cartes.PaquetFactoryTest.testAssignValueToCarte(PaquetFactoryTest.java:28)
+	at cartes.PaquetFactoryTest.testAssignValueToCarte(PaquetFactoryTest.java:23)

@@ -53,6 +53,9 @@ public class Joueur extends AbstractModeleEcoutable {
         return reste;
     }
 
+    /**
+     * Réinitialiser le statut du joueur
+     */
     public void reinitStatus() {
         this.main = new Paquet();
         this.mise = new MiseJoueur(this);
@@ -87,6 +90,12 @@ public class Joueur extends AbstractModeleEcoutable {
         return tirerCarte(croupier, this.main);
     }
 
+    /**
+     * Ajouter la premiere carte du croupier au main paquet
+     * @param croupier
+     * @param main
+     * @return 
+     */
     public Carte tirerCarte(Paquet croupier, Paquet main) {
         Carte carte = croupier.premiereCarte();
         main.addCarte(carte);
@@ -103,6 +112,12 @@ public class Joueur extends AbstractModeleEcoutable {
         }
     }
 
+    /**
+     * Doubler La Mise
+     * @param croupier
+     * @return
+     * @throws IllegalArgumentException 
+     */
     public Carte doublerMise(Paquet croupier) throws IllegalArgumentException {
         return doublerMise(croupier, this.main);
     }
@@ -122,6 +137,10 @@ public class Joueur extends AbstractModeleEcoutable {
         }
     }
 
+    /**
+     * Déterminer si on peut diviser le paquet
+     * @return 
+     */
     public boolean canSplit() {
         Carte carte1 = this.main.getCarte(0);
         Carte carte2 = this.main.getCarte(1);
@@ -132,6 +151,10 @@ public class Joueur extends AbstractModeleEcoutable {
         }
     }
 
+    /**
+     * Diviser le Paquet
+     * @throws IllegalArgumentException 
+     */
     public void split() throws IllegalArgumentException {
         if (canSplit()) {
             this.splitMain = new Paquet();

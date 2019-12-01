@@ -29,6 +29,12 @@ public class Croupier extends AbstractModeleEcoutable {
     
     
 
+    /**
+     * Remplacer Une Carte du pioche avec une carte du paquet main selon le nombre de carte croupier à distibuer 
+     * paramétré dans les régles
+     * @param joueurs
+     * @return 
+     */
     public Paquet deal(List<Joueur> joueurs) {
         for (Joueur joueur : joueurs) {
             for (int i = 0; i < 2; i++) {

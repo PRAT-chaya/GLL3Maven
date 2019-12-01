@@ -90,6 +90,13 @@ public abstract class Regles {
         return this.valeurMap;
     }
 
+    /**
+     * Déterminer si le joueur à gagner
+     * @param paquetJoueur
+     * @param paquetCroupier
+     * @param valeurAs
+     * @return 
+     */
     public boolean hasWon(Paquet paquetJoueur, Paquet paquetCroupier, int valeurAs) {
         int joueurSum = cartesSum(paquetJoueur.getCartes());
         if (joueurSum == 21) {
@@ -102,6 +109,11 @@ public abstract class Regles {
         return false;
     }
 
+    /**
+     * Somme des cartes
+     * @param cartes
+     * @return 
+     */
     public int cartesSum(List<Carte> cartes) {
         int sum = 0;
 

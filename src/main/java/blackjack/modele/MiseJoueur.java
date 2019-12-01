@@ -22,6 +22,9 @@ public class MiseJoueur{
     public MiseJoueur(Joueur joueur) {
         this.joueur = joueur;
         this.mises = new HashMap();
+        /**
+         * Inisialiser mises avec le main paquet du joueur
+         */
         this.mises.put(joueur.getMain(), 0);
     }
 
@@ -33,16 +36,30 @@ public class MiseJoueur{
         this.mises.replace(main, mise);
     }
 
+    /**
+     * Augmenter La Mise
+     * @param mise
+     * @param main 
+     */
     public void increaseMise(int mise, Paquet main) {
         int currMise = this.mises.get(main);
         this.mises.replace(main, currMise + mise);
     }
     
+    /**
+     * Diviser la mise
+     * @param main
+     * @param splitMain 
+     */
     public void split(Paquet main, Paquet splitMain){
         int mise = this.mises.get(main);
         this.mises.put(splitMain, mise);
     }
     
+    /**
+     * Doubler la mise
+     * @param main 
+     */
     public void doubleMise(Paquet main){
         int currMise = this.mises.get(main);
         this.mises.replace(main, currMise * 2);

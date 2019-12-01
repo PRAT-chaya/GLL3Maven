@@ -15,7 +15,7 @@ import util.AbstractModeleEcoutable;
 import util.EcouteurModele;
 
 /**
- *
+ * L'etat du jeu
  * @author ordinaute
  */
 public class EtatJeu extends AbstractModeleEcoutable implements EcouteurModele {
@@ -30,6 +30,11 @@ public class EtatJeu extends AbstractModeleEcoutable implements EcouteurModele {
     private int tour;
     private Joueur joueurActif;
 
+    /**
+     * Initialiser la liste des joueurs, régles et croupier
+     * @param joueurs
+     * @param regles 
+     */
     public EtatJeu(List<Joueur> joueurs, Regles regles) {
         this.mises = new HashMap();
         this.paquets = new HashMap();
