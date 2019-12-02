@@ -1,0 +1,34 @@
+ALGORITHMES
+
+
+Déterminer si les joueurs ont battu le croupier
+Pour chaque joueur, on fait une somme des valeurs de ses cartes : il gagne si le croupier n'a bien entendu pas de blackjack
+ et si sa somme est plus proche de 21 que celle du croupier (soit 21 - sommeCroupier > sommeJoueur).
+ 
+ Calculer la somme des valeurs des cartes
+ Pour calculer la somme, on ajoute à un compteur toutes les cartes d'une main sauf les as, qu'on compte séparémment.
+ Quand on a la somme de autres cartes et s'il y a un as ou plus dans la main, on détermine la valeur indivudelle de chaque as
+ qui serait la plus avantageuse pour le joueur. On part d'abord du principe que tous ces as valent 11 et on diminue progressivement
+ ces as à 11 (en les remplaçant par de as à 1) jusqu'à ce que l'on soit au plus à 21.
+ 
+ L'algorithme de génération de paquets
+ On construit un paquet avec PaquetFactory qui va en faire un jeu "à la française" (jeu de 32 ou 52 cartes).
+ Pour chaque indice de 0 à 32 ou 52, on assigne une couleur à la carte (qui change toutes les quatres itérations)
+ puis on lui assigne une hauteur (de l'as, 1, au roi, 13). Pour obtenir le "sabot" initial au blackjack qui est composé
+ de plusieurs paquets de 52 cartes, on utilise BlackjackPaquetFactory qui permet de générer plusieurs paquets de 52 ou 32,
+ de les ajouter à un paquet unique et de le retourner.
+ 
+ 
+ 
+ 
+ ASSOMPTIONS
+ 
+ - Le joueur n'a le droit de splitter qu'une fois.
+ - Le split et le double son incompatible.
+ - L'assurance ne peut s'appliquer qu'à la main "principale". Si le joueur split, seule sa première main est assurée.
+ - Doubler n'est possible que si la main du joueur vaut 9, 10 ou 11 (anciennes règles)
+ - Le joueur n'a pas le choix de la valeur de l'as, le jeu la calcule au plus avantageux
+ - Le gain d'un blackjack est de 3:2
+ - L'interface graphique ne supporte qu'un seul joueur
+ - C'est le joueur qui décide de rester, dépasser 21 ne termine pas automatiquement la partie
+ (même s'il est bien sûr plus possible de la gagner)
